@@ -1,0 +1,9 @@
+//ignore reference folder
+__pycache__/
+.vscode/
+dist/
+gnsscal.egg-info/
+
+//ignore css and html
+*.html
+*.css

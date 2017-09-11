@@ -124,7 +124,7 @@ Examples
 Installation
 ------------
 
-The module can be installed using `pip`_::
+The module can be installed using `pip`::
 
     $ pip install jdcal
 
@@ -140,6 +140,6 @@ Test gnsscal.py using command::
 License
 -------
 
-Released under BSD; see LICENSE.txt.
+Released under BSD, see LICENSE for more details.
 
-For comments and suggestions, please [send email to me](mailto:jiangyingming@live.com).
+For comments and suggestions, please send email to: jiangyingming(at)live.com

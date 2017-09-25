@@ -228,9 +228,58 @@ def bdsw2gpsw(bdsweek):
     return date2gpswd(date)[0]
 
 
+def __handle_cmd(args):
+    """Handle command line arguments."""
+    # Calculate Gregorian date from arguments
+    if args.date:
+        date = datetime.date(*args.date)
+    elif args.ydoy:
+        date = yrdoy2date(*args.ydoy)
+    elif args.gpswd:
+        date = gpswd2date(*args.gpswd)
+    elif args.bdswd:
+        date = bdswd2date(*args.bdswd)
+    else:
+        date = datetime.date.today()
+    print('Gregorian date: %s' %date.strftime('%Y-%m-%d'))
+    # Convert date into doy, GPS week and BDS week
+    doy = date2doy(date)
+    print('year, doy: %d, %03d' %(date.year, doy))
+    if date >= GPS_START_DATE:
+        gpsw, dow = date2gpswd(date)
+        print('GPS week: %04d, %d' %(gpsw, dow))
+    else:
+        print('GPS week: date too early!')
+    if date >= BDS_START_DATE:
+        bdsw, _ = date2bdswd(date)
+        print('BDS week: %04d, %d' %(bdsw, dow))
+    else:
+        print('BDS week: date too early!')
+
+    return 0
+
+
+def __init_args():
+    """Parse user input from command line."""
+    import argparse
+    # initilize a argument parser
+    parser = argparse.ArgumentParser(
+        description='Convert Gregorian date to GNSS calendar, or vice versa.'
+    )
+    # add arguments
+    parser.add_argument('-v', '--version', action='version',
+                        version='%(prog)s 1.1.0')
+    parser.add_argument('-date', metavar='<n>', nargs=3, type=int,
+                        help='year, month, day')
+    parser.add_argument('-ydoy', metavar='<n>', nargs=2, type=int,
+                        help='year, day of year')
+    parser.add_argument('-gpswd', metavar='<n>', nargs=2, type=int,
+                        help='GPS week, day of week')
+    parser.add_argument('-bdswd', metavar='<n>', nargs=2, type=int,
+                        help='BDS week, day of week')
+
+    return __handle_cmd(parser.parse_args())
+
+
 if __name__ == '__main__':
-    __TODAY = datetime.date.today()
-    print('today: %s' %__TODAY)
-    print('day of year: %s' %date2doy(__TODAY))
-    print('GPS week: %s %s' %date2gpswd(__TODAY))
-    print('BDS week: %s %s' %date2bdswd(__TODAY))
+    __init_args()

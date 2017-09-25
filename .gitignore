@@ -3,6 +3,7 @@ __pycache__/
 .vscode/
 dist/
 gnsscal.egg-info/
+build/
 
 //ignore css and html
 *.html

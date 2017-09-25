@@ -121,6 +121,33 @@ Examples
     bds_zero = gnsscal.BDS_START_DATE
 
 
+CLI mode
+--------
+
+You can also using gnsscal in CLI mode:
+
+    $ python -m gnsscal [options]
+
+Set input date using the optional arguments:
+
+- -h, --help                          show this help message and exit
+- -v, --version                       show program's version number and exit
+- -date <year> <month> <day>          year, month, day
+- -ydoy <year> <doy>                  year, day of year
+- -gpswd <GPS week> <day of week>     GPS week, day of week
+- -bdswd <BDS week> <day of week>     BDS week, day of week
+
+Example, typing this command in terminal:
+
+    $ python -m gnsscal -date 2017 5 17
+
+Then it will print::
+
+  Gregorian date: 2017-05-17
+  year, doy: 2017, 137
+  GPS week: 1949, 3
+  BDS week: 0593, 3
+
 Installation
 ------------
 

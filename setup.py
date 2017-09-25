@@ -7,7 +7,7 @@ import gnsscal
 
 setup(
     name='gnsscal',
-    version='1.0.0',
+    version='1.1.0',
     description='Switch Gregorian date to GNSS calendar (GPS & BDS).',
     license='BSD',
     author='Jon Jiang',

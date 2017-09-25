@@ -128,14 +128,14 @@ You can also using gnsscal in CLI mode::
 
     $ python -m gnsscal [options]
 
-Set input date using the optional arguments:
+Set input date using the optional arguments::
 
-+ -h, --help                          show this help message and exit
-+ -v, --version                       show program's version number and exit
-+ -date <year> <month> <day>          year, month, day
-+ -ydoy <year> <doy>                  year, day of year
-+ -gpswd <GPS week> <day of week>     GPS week, day of week
-+ -bdswd <BDS week> <day of week>     BDS week, day of week
+-h, --help                          show this help message and exit
+-v, --version                       show program's version number and exit
+-date <year> <month> <day>          year, month, day
+-ydoy <year> <doy>                  year, day of year
+-gpswd <GPS week> <day of week>     GPS week, day of week
+-bdswd <BDS week> <day of week>     BDS week, day of week
 
 Example, typing this command in terminal::
 

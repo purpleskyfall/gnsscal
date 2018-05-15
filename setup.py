@@ -4,11 +4,11 @@
 from setuptools import setup
 import gnsscal
 
-
 setup(
     name='gnsscal',
-    version='1.1.0',
+    version='1.1.1',
     description='Switch Gregorian date to GNSS calendar (GPS & BDS).',
+    long_description=open("README.rst").read(),
     license='BSD',
     author='Jon Jiang',
     author_email='jiangyingming@live.com',

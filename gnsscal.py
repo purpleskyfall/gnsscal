@@ -13,7 +13,7 @@ __all__ = [
     'GPS_START_DATE', 'BDS_START_DATE',
     'bdswd2date', 'bdswd2yrdoy',
     'date2bdswd', 'date2doy', 'date2gpswd', 'date2yrdoy',
-    'gpswd2date', 'gpswd2yrdoy',
+    'gpswd2date', 'gpswd2yrdoy','gpsws2date',
     'yrdoy2bdswd', 'yrdoy2date', 'yrdoy2gpswd'
 ]
 
@@ -227,6 +227,18 @@ def bdsw2gpsw(bdsweek):
     date = bdswd2date(bdsweek, 0)
     return date2gpswd(date)[0]
 
+def gpsws2date(week, seconds):
+    """Convert GPS week and Seconds of GPS Week to date, return datetime.datetime.
+
+    Example:
+
+    >>> gpsws2date(2103, 385914)
+    datetime.datetime(2020, 4, 30, 11, 11, 54)
+    """
+    start = datetime.datetime(year= 1980, month= 1, day =6)
+    totals = datetime.timedelta(seconds = week*7*24*3600 + seconds)
+    day = start + totals
+    return day
 
 def __handle_cmd(args):
     """Handle command line arguments."""
